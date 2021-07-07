@@ -1,0 +1,140 @@
+// (20 points) Create the function calculateInvoice() in Javascript that returns the invoice for one customer (how much they spent).
+// The parameters of the function should be starterPrice, maindishPrice, dessertPrice and beveragePrice.
+// The function will return the sum of these four parameters.
+
+
+function calculateInvoice(starterPrice, maindishPrice, dessertPrice, beveragePrice){
+    let sum = starterPrice + maindishPrice + dessertPrice + beveragePrice;
+    return sum.toFixed(2);
+}
+
+console.log(calculateInvoice(12.99, 11.99, 6.99, 5.95)); /* 37.92 */
+
+
+// (10 points) Use the prices on your menu to create four variables that you will pass to the
+// function calculateInvoice() as arguments.
+// Print the result on the console. 
+// Note: You should do it manually since we didn't learn how to take values from html elements yet.
+
+
+let calamariSalad = 12.99;
+let friedChicken = 10.99;
+let freshCannoli = 6.99;
+let santaMargherita = 55;
+
+console.log(calculateInvoice(calamariSalad, friedChicken, freshCannoli, santaMargherita)); /* 85.97 */
+
+
+// (10 points) Calculate at least 3 invoices using combinations of different dishes on your menu
+// and print them on the console (using one dish of each category).
+
+
+// starter
+let mozzarellaCaprese = 12.99;
+let friedMozzarella = 10.99;
+let chickenParmiana = 12.99;
+
+// main
+let tortelliniBolognese = 11.99;
+let chickenBreast = 10.99;
+let vegetableStirFry = 11.99;
+
+// dessert 
+let tiramisu = 6.99;
+let tartufoOrSpumoni = 6.99;
+let cafeExpressoe = 3.25;
+
+// beverages
+let domesticBeers = 4.95;
+let importedBeers = 5.95;
+let cavitVeneto = 28;
+
+
+let invoice1 = `
+INVOICE 1
+starter   = ${mozzarellaCaprese}€
+main      = ${tortelliniBolognese}€
+dessert   = ${tiramisu}€
+beverages = ${domesticBeers}€  
+TOTAL     = ${calculateInvoice(mozzarellaCaprese, tortelliniBolognese, tiramisu, domesticBeers)}€ 
+`;
+console.log(invoice1);
+
+let invoice2 = `
+INVOICE 2
+starter   = ${friedMozzarella}€
+main      = ${chickenBreast}€
+dessert   = ${tartufoOrSpumoni}€
+beverages = ${importedBeers}€  
+TOTAL     = ${calculateInvoice(friedMozzarella, chickenBreast, tartufoOrSpumoni, importedBeers)}€ 
+`;
+console.log(invoice2);
+
+let invoice3 = `
+INVOICE 3
+starter   = ${chickenParmiana}€
+main      = ${vegetableStirFry}€
+dessert   = ${cafeExpressoe}€
+beverages = ${cavitVeneto}€  
+TOTAL     = ${calculateInvoice(chickenParmiana, vegetableStirFry, cafeExpressoe, cavitVeneto)}€ 
+`;
+console.log(invoice3);
+
+
+// (10 points) Create a function studentInvoice() that will apply a 10% discount to the final invoice. 
+// This function should have the same parameters as the function calculateInvoice(). 
+// This discount applies to the dishes but NOT the beverages. Print 3 examples of studentInvoice() on the console.
+
+
+function studentInvoice(starterPrice, maindishPrice, dessertPrice, beveragePrice){
+    let sumDishes = starterPrice + maindishPrice + dessertPrice;
+    let discount = (10 / 100) * sumDishes;
+    let sum = (sumDishes - discount) + beveragePrice;
+    return sum.toFixed(2);  
+
+}
+
+let studentInvoice1 = `
+STUDENTINVOICE 1
+starter   = ${mozzarellaCaprese}€
+main      = ${tortelliniBolognese}€
+dessert   = ${tiramisu}€
+beverages = ${domesticBeers}€  
+TOTAL     = ${studentInvoice(mozzarellaCaprese, tortelliniBolognese, tiramisu, domesticBeers)}€ 
+`;
+console.log(studentInvoice1);
+
+let studentInvoice2 = `
+STUDENTINVOICE 2
+starter   = ${friedMozzarella}€
+main      = ${chickenBreast}€
+dessert   = ${tartufoOrSpumoni}€
+beverages = ${importedBeers}€  
+TOTAL     = ${studentInvoice(friedMozzarella, chickenBreast, tartufoOrSpumoni, importedBeers)}€ 
+`;
+console.log(studentInvoice2);
+
+let studentInvoice3 = `
+STUDENTINVOICE 3
+starter   = ${chickenParmiana}€
+main      = ${vegetableStirFry}€
+dessert   = ${cafeExpressoe}€
+beverages = ${cavitVeneto}€  
+TOTAL     = ${studentInvoice(chickenParmiana, vegetableStirFry, cafeExpressoe, cavitVeneto)}€ 
+`;
+console.log(studentInvoice3);
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
